@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Encriptador de Texto</title>
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="header">
+    <div>
+      <img src="./assets/vector.svg" alt="logo">
+    </div>
+  </header>
+
+  <main>
+    <section class="input-text">
+      <textarea name="text" class="text-area" placeholder="Ingrese el texto aquí" id="input-text"></textarea>
+    </section>
+
+    <section class="buttons">
+      <p>
+        <span><img src="./assets/warning.svg" alt="icono aviso" srcset=""></span>
+      </p>
+      <div class="btn-container">
+        <button id="encriptar">Encriptar</button>
+        <button id="desencriptar">Desencriptar</button>
+      </div>
+    </section>
+
+    <section class="output-text">
+      <div class="info-output">
+        <div class="munieco-container" id="cont-img-munieco">
+        </div>
+        <h2>Ningun mensaje fue encontrado</h2>
+        <p>Ingresa el texto que desea encriptar o desencriptar</p>
+      </div>
+    </section>
+  </main>
+  <script src="./js/app.js"></script>
+</body>
+</html>
