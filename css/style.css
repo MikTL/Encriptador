@@ -1,12 +1,16 @@
+:root{
+  --main-color: #
+}
+
 html{
   font-family: 'Inter', sans-serif;
 }
 body{
-  background-color: #F3F5FC;
+  background-image:linear-gradient(120deg,  #1f2b56 45%, #3f2640) 
 }
 .header{
   width: 100%;
-  height: 97px;
+  height: 15vh;
   display: flex;
   align-items: center;
   padding-left: 15px;
@@ -22,16 +26,21 @@ main{
   margin-bottom: 20px;
 }
 .text-area{
-  background-color: inherit;
+  color: lightgreen;
   width: 100%;
   height: 100%;
   overflow: auto;
-  border: none;
+  border: thin solid rgba(255, 255, 255, 0.2);
   font-size: 1.2rem;
   resize: none;
+  border-radius: 24px;
+  padding: 25px;
+  background-color:rgba(255, 255, 255, 0.08);
+  
 }
 .text-area::placeholder{
   text-align: center;
+  color: lightgreen;
 }
 .text-area:focus{
   outline: none;
@@ -48,16 +57,53 @@ main{
   width: inherit;
   height: 50px;
   margin: 8px 0 15px 0;
-  font-size: 16px;
+  font-size: 18px;
   background-color: #0A3871;
   border: thin solid #0A3871;
-  color: white;
+  color: gold;
+  font-weight: bold;
   border-radius: 24px;
   cursor: pointer;
 }
-.buttons button:last-child{
-  background-color: inherit;
-  color: #0A3871;
+.bn30 {
+  border: 5em;
+  cursor: pointer;
+  outline: none;
+  font-size: 16px;
+  -webkit-transform: translate(0);
+  transform: translate(0);
+  background-image: linear-gradient(45deg, #4568dc, #b06ab3);
+  padding: 0.7em 2em;
+  border-radius: 65px;
+  box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.438);
+  -webkit-transition: box-shadow 0.25s;
+  transition: box-shadow 0.25s;
+  color: white;
+}
+.bn30 .text {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(45deg, #4568dc, #b06ab3);
+}
+.bn30:after {
+  content: "";
+  border-radius: 18px;
+  position: absolute;
+  margin: 4px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  background: #0e0e10;
+}
+.bn30:hover {
+  background-image: linear-gradient(-45deg, #4568dc, #b06ab3);
+  box-shadow: 0 12px 24px rgba(128, 128, 128, 0.1);
+}
+.bn30:hover .text {
+  background-image: linear-gradient(-45deg, #4568dc, #b06ab3);
 }
 
 /* Output text */
@@ -65,17 +111,22 @@ main{
 .output-text{
   width: 100%;
   height: auto;
-  background-color: white;
+  border: thin solid rgba(255, 255, 255, 0.2);
+  background-color:rgba(128, 128, 128, 0.1) ;
   padding: 32px;
   margin-top: 15px;
   text-align: center;
   box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
   border-radius: 32px;
+  color: gold;
 }
 .output-text h2{
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 10px;
+}
+.output-text p{
+  color: lightgreen;
 }
 .results{
   width: 100%;
@@ -93,6 +144,24 @@ main{
   border-radius: 24px;
   cursor: pointer;
 }
+
+/* Footer */
+footer{
+  width: 85%;
+  height: 5vh;
+  margin: 0 auto;
+  background-color:rgba(255, 255, 255, 0.08);
+  color: lightgreen;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  justify-content: center;
+}
+footer a{
+  color: gold;
+}
 /* ******* Tablet ******* */
 @media screen and (min-width: 600px) {
   main,
@@ -107,7 +176,6 @@ main{
   }
   .input-text{
     height: 45vh;
-    margin-top: 60px;
   }
   .text-area{
     font-size: 1.7rem;
@@ -130,6 +198,19 @@ main{
 
 /* ****** Desktop ******** */
 @media screen and (min-width: 1025px) {
+  body{
+    height: 100vh;
+  }
+  .header{
+    height: 15vh;
+  }
+  main{
+    height: 80vh;
+  }
+  footer{
+    height: 5vh;
+    font-size: 16px;
+  }
   .header div{
     margin-top: 20px;
   }
@@ -138,20 +219,19 @@ main{
     top: 15px;
     right: 25px;
     width: 20vw;
-    height: 90vh;
+    height: 89vh;
     display: flex;
     padding: 25px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
   }
   .btn-container,
   .input-text{
     width: 74%;
   }
   .input-text{
-    margin-top: 30px;
+    margin-top: 0px;
   }
   .text-area::placeholder{
     text-align: start;

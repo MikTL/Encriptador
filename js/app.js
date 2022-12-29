@@ -1,36 +1,22 @@
-const d = document,
-  w = window
+import responsiveMedia from "./responsible_responsive.js"
+
+const d = document
+
+d.addEventListener("DOMContentLoaded",()=>{
+  responsiveMedia("cont-img-munieco", "(min-width: 1025px)")
+})
 
 const btnEncriptar=d.getElementById("encriptar") 
 const btnDesencriptar=d.getElementById("desencriptar") 
 
-
-
-function responsiveMedia(id, mq) {
-  let breakpoint = w.matchMedia(mq)
-  function responsive(e) {
-    if (e.matches) {
-      d.getElementById(id).innerHTML = `<img src="./assets/munieco.png" alt="imagen de muñeco">`
-    }else{
-      d.getElementById(id).innerHTML =""
-    }
-  }
-  breakpoint.addEventListener("change", responsive)
-  responsive(breakpoint)
-}
-/* Esta funcion coloca la  imagen en la seccion del resultado solo si el tamaño de pantalla es mayor a 1025px */
-responsiveMedia("cont-img-munieco", "(min-width: 1025px)")
-
-
 /* ****** Encriptar ******* */
-
 function encriptar(){
   let mensaje=d.getElementById("input-text").value
   let arrSalida=[]
   let mensajeSalida=""
 
   if(mensaje!==""){ // Todo el codigo se ejecutará solo si el usuario ingresa algo en la caja de texto
-
+    
     for(let i=0 ; i<mensaje.length ; i++){
       // llenamos el Array con cada caracter del texto ingresado
       arrSalida.push(mensaje[i])
@@ -59,7 +45,6 @@ function encriptar(){
     /* Para copiar en el Portapapeles el resultado*/
     d.getElementById("btn-copiar").addEventListener("click", function(){
       let text=d.querySelector(".text-result").textContent
-
       navigator.clipboard.writeText(text).then(()=>{
         console.log("copiado")
       })
@@ -137,9 +122,16 @@ function imprimirEnElDom(mensaje){
   outputResponse.innerHTML=`
     <div class="results">
       <div class="text-result">${mensaje}</div>
-      <button id="btn-copiar">Copiar</button>
+      <button id="btn-copiar" class="bn30">Copiar</button>
     </div>`
 }
+
+let letra=document.getElementById("input-text")
+
+function corregirMayus(){
+  letra.value=letra.value.replace(/[^a-zA-Z0-9\s.]/g,"").toLowerCase()
+}
+letra.addEventListener("input", corregirMayus)
 btnEncriptar.addEventListener("click", encriptar)
 btnDesencriptar.addEventListener("click", desencriptar)
 
